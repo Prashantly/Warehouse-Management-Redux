@@ -4,37 +4,48 @@ import { useParams } from 'react-router-dom';
 import { updateWarehouse } from '../states/actions';
 
 const Details = () => {
+    // Retrieve the "id" parameter from the URL
     const { id } = useParams();
     const dispatch = useDispatch();
+
+    // Get the list of warehouses from the Redux store
     const warehouses = useSelector((state) => state.warehouses.wareHouseList);
-    console.log(warehouses)
+
+    // Initialize local state variables
     const [warehouse, setWarehouse] = useState({});
     const [isEditing, setIsEditing] = useState(false);
 
+    // Fetch and update the warehouse data based on the "id" parameter and Redux store
     useEffect(() => {
         if (id && warehouses.length > 0) {
+            // Find the selected warehouse using the "id" parameter
             let selectedWarehouse = warehouses.find((w) => {
                 return w.id === parseInt(id);
             });
+
+            // Set the selected warehouse data in the local state
             setWarehouse(selectedWarehouse);
         }
     }, [id, warehouses]);
 
+    // Handle the "Edit" button click
     const handleEdit = (e) => {
         e.preventDefault();
         setIsEditing(true);
     }
 
+    // Handle the "Save Changes" button click
     const handleSaveChanges = (e) => {
         e.preventDefault();
-        // Dispatch updateWarehouse action with the updated warehouse data
+        // Dispatch the "updateWarehouse" action with the updated warehouse data
         dispatch(updateWarehouse(warehouse, id));
         setIsEditing(false);
     }
 
+    // Handle input field changes
     const handleInputChange = (e) => {
         const { name, value } = e.target;
-        // Handle is_registered and is_live fields separately
+        // Handle "is_registered" and "is_live" fields separately
         if (name === "is_registered" || name === "is_live") {
             setWarehouse((prevWarehouse) => ({
                 ...prevWarehouse,
@@ -52,6 +63,7 @@ const Details = () => {
                     <div className="card-body">
                         {
                             !isEditing ? (
+                                // Display warehouse details (read-only) when not in edit mode
                                 <>
                                     <h3 className="card-title">{warehouse.name}</h3>
                                     <div className="detailInfo">
@@ -65,6 +77,7 @@ const Details = () => {
                                     </div>
                                 </>
                             ) : (
+                                // Display input fields for editing when in edit mode
                                 <>
                                     <h3 className="card-title">
                                         <input type="text" name="name" placeholder='Enter Warehouse name' value={warehouse.name} onChange={handleInputChange} />
@@ -97,6 +110,7 @@ const Details = () => {
                         }
                         {
                             isEditing ? (
+                                // Display "Save Changes" and "Cancel" buttons when in edit mode
                                 <>
                                     <button className="btn btn-outline-info me-2" onClick={handleSaveChanges}>
                                         Save Changes
@@ -106,6 +120,7 @@ const Details = () => {
                                     </button>
                                 </>
                             ) : (
+                                // Display the "Edit" button when not in edit mode
                                 <button className="btn btn-warning" onClick={handleEdit}>
                                     Edit
                                 </button>
@@ -119,3 +134,4 @@ const Details = () => {
 };
 
 export default Details;
+

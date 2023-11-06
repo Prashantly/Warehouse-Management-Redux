@@ -36,6 +36,11 @@ const FilterComponent = () => {
                 onChange={(e) => setCluster(e.target.value)}
                 className={styles.filterInput}
             />
+
+            <button onClick={applyFilters} className={`${styles.filterButton} mb-3`}>
+                Apply Filters
+            </button>
+
             <label htmlFor="spaceLimitRange" className={styles.filterLabel}>
                 Filter by space available limit:
             </label>
@@ -50,9 +55,7 @@ const FilterComponent = () => {
                 className={styles.rangeInput}
             />
             <span className={styles.rangeValue}>{spaceLimit}</span>
-            <button onClick={applyFilters} className={styles.filterButton}>
-                Apply Filters
-            </button>
+
         </div>
     );
 };
