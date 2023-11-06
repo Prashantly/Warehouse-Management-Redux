@@ -1,0 +1,44 @@
+.filterContainer {
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.filterInput {
+  width: 100%;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 10px;
+  font-size: 16px;
+}
+
+.filterLabel {
+  font-size: 16px;
+  margin-bottom: 10px;
+  display: block;
+}
+
+.rangeInput {
+  width: 100%;
+  margin-bottom: 10px;
+  border-radius: 5px;
+}
+
+.rangeValue {
+  display: block;
+  font-size: 16px;
+  text-align: center;
+}
+
+.filterButton {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 18px;
+  cursor: pointer;
+}

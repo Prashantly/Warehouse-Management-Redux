@@ -1,0 +1,30 @@
+/* Home.css */
+.homeContainer {
+  background-color: #f5f5f5;
+  min-height: 100vh;
+}
+
+.pageTitle {
+  text-align: center;
+  font-size: 24px;
+  margin-top: 20px;
+  color: #333;
+}
+
+.sidebar {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.heading {
+  font-size: 20px;
+  margin-bottom: 20px;
+  font-weight: bold;
+}
+
+
+
+/* Add additional styles as needed */

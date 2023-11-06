@@ -1,0 +1,16 @@
+.searchform {
+  display: flex;
+  align-items: center;
+}
+
+.searchinput {
+  flex: 1;
+  border: 2px solid #007bff;
+  border-radius: 5px;
+  padding: 8px 16px;
+  font-size: 16px;
+}
+
+.searchinput::placeholder {
+  color: #888;
+}
